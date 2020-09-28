@@ -1,8 +1,0 @@
--------------------------------------------------------------------------------
-Test set: ch.akratash.muehle.model.BoardTest
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.224 s <<< FAILURE! - in ch.akratash.muehle.model.BoardTest
-shouldAnswerWithTrue(ch.akratash.muehle.model.BoardTest)  Time elapsed: 0.026 s  <<< FAILURE!
-java.lang.AssertionError
-	at ch.akratash.muehle.model.BoardTest.shouldAnswerWithTrue(BoardTest.java:16)
-
