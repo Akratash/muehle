@@ -14,6 +14,8 @@ public class Board
 	private boolean m_gameOver;
 	private Player m_activePlayer;
 	private Player m_winner;
+	private int m_stackStones;
+	private int m_stonesLeft;
 
 	/**
 	 * Default Zustände des Boards GameOver Zustand auf false neues 2 Dimensionales
@@ -26,6 +28,8 @@ public class Board
 		m_grid = new Player[3][3][3];
 		m_activePlayer = Player.WHITE;
 		m_winner = Player.NONE;
+		m_stackStones = 9;
+
 		/**
 		 * überschreiben der NULL Werte im Array auf den Zustand NONE
 		 */
@@ -64,9 +68,32 @@ public class Board
 		return result;
 	}
 
+
+	protected int checkPhase(){
+		return 0;
+	}
+
 	protected boolean makeMovePhase1(int dimension, int column, int row) {
 		boolean result = false;
+
 		
+		if (dimension < 0 || dimension > 2){
+			return false;
+		}
+		if (column < 0 || column > 2){
+			return false;
+		}
+		if (row < 0 || row > 2){
+			return false;
+		}
+		if (column == 1 && row == 1){
+			return false;
+		}
+
+		if(m_grid[dimension][column][row]!=Player.NONE){
+			return false;
+		}
+
 		m_grid[dimension][column][row] = m_activePlayer;
 		switchPlayer();
 		result = true;
@@ -83,11 +110,7 @@ public class Board
 		return m_gameOver;
 	}
 
-	/**
-	 * 
-	 * @param lastInsertedColumn
-	 * @param lastInsertedRow
-	 */
+
 	private void checkGameOver(final int lastInsertedColumn, final int lastInsertedRow) {
 		// TODO implement
 	}
